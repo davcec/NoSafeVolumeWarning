@@ -9,7 +9,7 @@ public class NoSafeVolumeWarning implements IXposedHookZygoteInit {
 	public void initZygote(IXposedHookZygoteInit.StartupParam startupParam)
 			throws Throwable {
 		Class<?> AudioService = XposedHelpers.findClass(
-				"android.media.AudioService", null);
+				"com.android.server.audio.AudioService", null);
 		XposedHelpers.findAndHookMethod(AudioService, "enforceSafeMediaVolume",
 				new XC_MethodHook() {
 
